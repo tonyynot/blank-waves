@@ -1,0 +1,42 @@
+/*!
+ * Blank Waves | Curated Photos by Anthony Ramella (http://blankwaves.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+/*Colors */
+
+body {
+    padding-top: 70px;
+	font-family: "Cousine";
+	background-color: #F0EFEB;
+}
+
+.thumb {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+/* Greyscale Image Hover */
+
+img:hover {
+  -webkit-filter: grayscale(0%);
+  -webkit-transition: .2s ease-in-out;
+  -moz-filter: grayscale(0%);
+  -moz-transition: .2s ease-in-out;
+  -o-filter: grayscale(0%);
+  -o-transition: .2s ease-in-out;
+}
+
+img {
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: .2s ease-in-out;
+  -moz-filter: grayscale(100%);
+  -moz-transition: .2s ease-in-out;
+  -o-filter: grayscale(100%);
+  -o-transition: .2s ease-in-out;
+}
