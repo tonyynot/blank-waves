@@ -20,23 +20,3 @@ body {
 footer {
     margin: 50px 0;
 }
-
-/* Greyscale Image Hover */
-
-img:hover {
-  -webkit-filter: grayscale(0%);
-  -webkit-transition: .2s ease-in-out;
-  -moz-filter: grayscale(0%);
-  -moz-transition: .2s ease-in-out;
-  -o-filter: grayscale(0%);
-  -o-transition: .2s ease-in-out;
-}
-
-img {
-  -webkit-filter: grayscale(100%);
-  -webkit-transition: .2s ease-in-out;
-  -moz-filter: grayscale(100%);
-  -moz-transition: .2s ease-in-out;
-  -o-filter: grayscale(100%);
-  -o-transition: .2s ease-in-out;
-}
