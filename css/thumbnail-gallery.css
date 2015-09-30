@@ -16,6 +16,25 @@ body {
 .thumb {
     margin-bottom: 30px;
 }
+.page-header {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+}
+.navbar-inverse .navbar-brand {
+  font-size: 2.2rem;
+}
+.navbar-inverse .navbar-nav {
+  font-size: 1.8rem;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color: #407899;
+  font-weight: bolder;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #F0EFEB;
+}
 
 footer {
     margin: 50px 0;
