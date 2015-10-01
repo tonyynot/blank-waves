@@ -83,6 +83,7 @@
                     <p>Artist: Julia Holter</p>
                     <p>Album: Have You In My Wilderness</p>
                     <p>Label: Domino Records</p>
+                    <p>Released: September 25, 2015</p>
                 </div>
           </div>
 
@@ -104,7 +105,7 @@
               </li>
               <li>
                   <a href="#video" role="tab" data-toggle="tab">
-                      <i class="fa fa-cog"></i> Video
+                      Video
                   </a>
               </li>
               <li>
@@ -121,30 +122,45 @@
 
           <!-- Tab panes -->
           <div class="tab-content">
+            <!-- Listen content -->
             <div class="tab-pane fade active in" id="listen">
                 <h2></h2>
                 <div class="row">
                   <div class="col-lg-6 col-md-12 col-sm-12">
-                <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A1kVTV6AoeMjAOMOJyVfYOl" width="300" height="480" frameborder="0" allowtransparency="true"></iframe>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                  <iframe src="https://embed.spotify.com/follow/1/?uri=spotify:artist:0bsV0sUjnCuCTYOnNHQl3E&size=detail&theme=light" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
-                </div>
+                    <!-- Spotify / Soundcloud player embed // Default size for album: 350x450 -->
+                    <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A1kVTV6AoeMjAOMOJyVfYOl" width="350" height="450" frameborder="0" allowtransparency="true"></iframe>
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12">
+                    <!-- Get Spotify URL for artist follow widget -->
+                    <iframe src="https://embed.spotify.com/follow/1/?uri=spotify:artist:0bsV0sUjnCuCTYOnNHQl3E&size=detail&theme=light" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+                  </div>
               </div>
 
           </div>
             <div class="tab-pane fade" id="buy">
                 <h2>Purchase Content Goes Here</h2>
-
             </div>
             <div class="tab-pane fade" id="video">
                 <h2>Video Content Goes Here</h2>
-
             </div>
+
+            <!-- Discuss Content -->
             <div class="tab-pane fade" id="discuss">
-                <h2>Discuss Content Goes Here</h2>
+              <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                  /* * * CONFIGURATION VARIABLES * * */
+                  var disqus_shortname = 'blankwaves';
 
-            </div>
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div><!--end discuss content-->
+
             <div class="tab-pane fade" id="review">
                 <h2>Review content goes here</h2>
 
