@@ -8,22 +8,25 @@
 /*Colors */
 
 body {
+  min-  height: 100%;
   padding-top: 70px;
 	font-family: "Abel";
 	background-color: #F0EFEB;
 }
 .body-container {
-
+  min-height: 100%;
 }
-.thumb {
-    margin-bottom: 30px;
+.main {
+  overflow:auto;
+  padding-bottom:150px;
 }
 .page-header {
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    text-transform: uppercase;
-    border-bottom: 1px solid #000;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
 }
+
 .navbar-inverse .navbar-brand {
   font-size: 2.2rem;
 }
@@ -38,9 +41,6 @@ body {
   color: #F0EFEB;
 }
 
-footer {
-    margin: 50px 0;
-}
 /* Hover Effects */
 .hovereffect {
   width: 100%;
@@ -161,13 +161,21 @@ footer {
     padding: 10px;
 }
 .tabs-container {
-    padding-top: 2rem;
+    padding-top: 0;
     margin-left: -11px;
     margin-right: -11px;
 }
 .panel-title {
   font-size: 2.6rem;
 }
+
+/* Footer styles */
+.footer {
+  color: #F0EFEB;
+  background-color: #000;
+  padding-bottom: 5rem;
+}
+
 @media (min-width: 768px){
 .container {
   max-width: none;
