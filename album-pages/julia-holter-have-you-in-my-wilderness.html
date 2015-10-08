@@ -107,7 +107,7 @@
             </li>
             <li>
               <a href="#review" role="tab" data-toggle="tab">
-                Review
+                Reviews
               </a>
             </li>
           </ul><!-- end nav tabs -->
@@ -155,7 +155,9 @@
 
           <!-- Reviews content -->
           <div class="tab-pane fade" id="review">
-            <h2>User reviews section coming soon</h2>
+            <h2>Reviews</h2>
+              <div id="results"> </div>
+
           </div><!--end reviews pane content -->
 
         </div><!--end tabs content-->
@@ -190,9 +192,9 @@
       $("#results").hide();
       var args = {
               format:'json',
-              api_key: NHU6TJIHQ2CCKXVOY,
-              name: Julia Holter,
-              results: 100,
+              api_key: 'NHU6TJIHQ2CCKXVOY',
+              name: "Julia Holter",
+              results: 15,
       };
 
       info("Fetching reviews for " + artist);
@@ -283,15 +285,7 @@
   $(document).ready(function() {
       // fetchApiKey will fetch the Echo Nest demo key for demos
       // hosted on The Echo Nest, otherwise it fetch an empty key
-      fetchApiKey( function(api_key, isLoggedIn) {
-          if (!api_key) {
-              api_key = 'NHU6TJIHQ2CCKXVOY';
-          }
-          apiKey = api_key;
-          $("#all_results").hide();
-          $("#go").click(go);
-          $("#artist").change(go);
-      });
+      fetchReviews();
   });
 
   </script>
