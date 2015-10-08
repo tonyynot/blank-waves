@@ -32,7 +32,7 @@
 </head>
 
 <body>
-<div class="body-container">
+
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -44,7 +44,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/index.html">blank_waves</a>
+        <a class="navbar-brand" href="#">blank_waves</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -63,23 +63,70 @@
           </li>
         </ul>
       </div><!-- end navbar-collapse -->
+    </div><!-- end container -->
   </nav>
 
   <!-- Page Content -->
-<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/26757569&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 
-</div><!-- end container -->
-<footer>
-  <div class="navbar navbar-fixed-bottom">
-  &copy;2015 Anthony Ramella
-</div>
-</footer>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-12">
+        <h1 class="page-header">NEW TRACKS</h1>
+      </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+          <iframe width="100%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/212853226&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+          <div class="youtube-container">
+            <div class="youtube-player" data-id="JM6lRdPO7So"></div>
+          </div>
+        </div>
+    </div>
+      </div>
+    <!--end row-->
+
+
+  </div><!--end container -->
+
+  <!-- Footer -->
+  <footer>
+      <div class="footer navbar-bottom">
+        <p>Copyright &copy; Anthony Ramella 2015</p>
+      </div>
+  </footer>
+
   <!-- jQuery -->
   <script src="/js/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
   <script src="/js/bootstrap.min.js"></script>
 
+  <!-- Youtube Embed -->
+  <script>
+(function() {
+    var v = document.getElementsByClassName("youtube-player");
+    for (var n = 0; n < v.length; n++) {
+        var p = document.createElement("div");
+        p.innerHTML = labnolThumb(v[n].dataset.id);
+        p.onclick = labnolIframe;
+        v[n].appendChild(p);
+    }
+})();
+
+function labnolThumb(id) {
+    return '<img class="youtube-thumb" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
+}
+
+function labnolIframe() {
+    var iframe = document.createElement("iframe");
+    iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&controls=0&showinfo=0");
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("id", "youtube-iframe");
+    this.parentNode.replaceChild(iframe, this);
+}
+</script>
 
 </body>
 
