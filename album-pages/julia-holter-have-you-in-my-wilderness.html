@@ -178,6 +178,123 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="/js/bootstrap.min.js"></script>
 
+  <!-- Echonest API Script -->
+  <script type="text/javascript">
+
+  var apiKey = 'NHU6TJIHQ2CCKXVOY ';
+  jQuery.ajaxSettings.traditional = true;
+
+  function fetchReviews(artist) {
+      var url = 'http://developer.echonest.com/api/v4/artist/reviews';
+
+      $("#results").hide();
+      var args = {
+              format:'json',
+              api_key: NHU6TJIHQ2CCKXVOY,
+              name: Julia Holter,
+              results: 100,
+      };
+
+      info("Fetching reviews for " + artist);
+      $.getJSON(url, args,
+              function(data) {
+                  console.log(data);
+                  $("#results").empty();
+                  if (! ('reviews' in data.response)) {
+                      error("Can't find any reviews for " + artist);
+                  } else {
+                      $("#results").show();
+                      var titles = {}
+                      $.each(data.response.reviews, function(index, item) {
+                          if (! (item.name in titles)) {
+                              var div = format(item);
+                              if (div) {
+                                  $("#results").append(div);
+                              }
+                              titles[item.name] = 1;
+                          }
+                      });
+                      info("Showing " + data.response.reviews.length + " of " + data.response.total + " reviews for " + artist);
+                  }
+              },
+              function() {
+                  error("Trouble getting reviews for " + artist);
+              }
+          );
+  }
+
+  var blackList = ['www.crawdaddy.com'];
+
+  function format(item) {
+      var div = $("<div class='well clearfix'>");
+      var source = getSource(item.url);
+
+      if (blackList.indexOf(source) != -1) {
+          return null;
+      }
+
+      div.append($("<h4>").html(item.name));
+
+      if (item.image_url) {
+          div.append($("<img style='float:left;margin-right:10px;max-width:150px'>").attr('src', item.image_url));
+      }
+
+      var date = null;
+      if ('date_posted' in item) {
+          date = item.date_posted;
+      } else if ('date_found' in item) {
+          date = item.date_found;
+      }
+      if (date) {
+          date = "<i>" + date.substring(0,10) + '</i> ';
+      }
+
+      div.append($("<p>").html(date + item.summary + " ..." ));
+      var link = $("<a>");
+      link.attr('href', item.url);
+      link.text("full review on " + source);
+      div.append(link);
+      return div;
+  }
+
+  function getSource(url) {
+  	var path = url.split('/');
+  	return path[2]	;
+  }
+
+  function info(s) {
+      $("#info").removeClass();
+      if (s.length > 0) {
+          $("#info").addClass("alert alert-info");
+      }
+      $("#info").text(s);
+  }
+
+  function error(s) {
+      $("#info").removeClass();
+      if (s.length > 0) {
+          $("#info").addClass("alert alert-error");
+      }
+      $("#info").text(s);
+  }
+
+
+
+  $(document).ready(function() {
+      // fetchApiKey will fetch the Echo Nest demo key for demos
+      // hosted on The Echo Nest, otherwise it fetch an empty key
+      fetchApiKey( function(api_key, isLoggedIn) {
+          if (!api_key) {
+              api_key = 'NHU6TJIHQ2CCKXVOY';
+          }
+          apiKey = api_key;
+          $("#all_results").hide();
+          $("#go").click(go);
+          $("#artist").change(go);
+      });
+  });
+
+  </script>
 </body>
 
 </html>
