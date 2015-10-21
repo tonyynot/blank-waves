@@ -144,6 +144,7 @@ body {
 .nav-tabs > li > a {
     background: #DADADA;
     border-radius: 0;
+    bottom: 2px;
     /*box-shadow: inset 0 -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4);*/
 }
 .nav-tabs > li.active > a,
@@ -223,6 +224,12 @@ div.play-button {
   color: #F0EFEB;
   background-color: #000;
   padding-bottom: 5rem;
+}
+.navbar-bottom {
+    top: 35px;
+    font-family: sans-serif;
+    background-color: #222222;
+    color: #fff;
 }
 
 @media (min-width: 768px){
