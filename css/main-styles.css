@@ -13,13 +13,16 @@ body {
 	font-family: "Abel";
 	background-color: #F0EFEB;
 }
+
 .body-container {
   min-height: 100%;
 }
+
 .main {
   overflow:auto;
   padding-bottom:150px;
 }
+
 .page-header {
   margin-top: 3rem;
   margin-bottom: 0rem;
@@ -30,13 +33,16 @@ body {
 .navbar-inverse .navbar-brand {
   font-size: 2.2rem;
 }
+
 .navbar-inverse .navbar-nav {
   font-size: 1.8rem;
 }
+
 .navbar-inverse .navbar-nav>li>a {
   color: #407899;
   font-weight: bolder;
 }
+
 .navbar-inverse .navbar-nav>li>a:hover {
   color: #F0EFEB;
 }
@@ -134,10 +140,12 @@ body {
   background-color: #fff;
   font-size: 2rem;
 }
+
 /* Album Template Container */
 .container.album-feature {
   min-height: 90rem;
 }
+
 /* Tab Navigation */
 .nav-tabs {
   margin: 0;
@@ -145,18 +153,20 @@ body {
   border: 0;
   font-size: 2rem;
 }
+
 .nav-tabs > li > a {
   border-radius: 0;
   bottom: 2px;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    color: #555;
-    cursor: default;
-    background-color: #F5F5F5;
-    border: 1px solid #ddd;
-    border-bottom-color: transparent;
+  color: #555;
+  cursor: default;
+  background-color: #F5F5F5;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
 }
+
 /* Tab Content */
 .tab-pane {
   background: #F5F5F5;
@@ -165,11 +175,13 @@ body {
   text-align: center;
   padding: 10px;
 }
+
 .tabs-container {
   padding-top: 0;
   margin-left: -11px;
   margin-right: -11px;
 }
+
 .panel-title {
   font-size: 2.6rem;
 }
@@ -181,6 +193,7 @@ body {
   width: 100%;
   max-width: 600px;
 }
+
 .youtube-player {
   display: block;
   width: 100%; /* assuming that the video has a 16:9 ratio */
@@ -193,6 +206,7 @@ body {
   cursor: pointer;
   display: block;
 }
+
 img.youtube-thumb {
   bottom: 0;
   display: block;
@@ -205,6 +219,7 @@ img.youtube-thumb {
   top: 0;
   height: auto
 }
+
 div.play-button {
   height: 72px;
   width: 72px;
@@ -215,6 +230,7 @@ div.play-button {
   position: absolute;
   background: url("http://i.imgur.com/TxzC70f.png") no-repeat;
 }
+
 #youtube-iframe {
   width: 100%;
   height: 100%;
@@ -229,8 +245,15 @@ div.play-button {
   background-color: #000;
   padding-bottom: 5rem;
 }
+
+.footer p {
+  margin: 20px 20px;
+}
+
 .navbar-bottom {
   top: 35px;
+  padding-top: 0.5rem;
+  padding-left: 1.5rem;
   font-family: sans-serif;
   background-color: #222222;
   color: #fff;
