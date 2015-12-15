@@ -4,14 +4,13 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-
 /*Colors */
 
 body {
   min-  height: 100%;
   padding-top: 70px;
 	font-family: "Abel";
-	background-color: #F0EFEB;
+	background-color: #F6EFEE;
 }
 
 .body-container {
@@ -28,6 +27,19 @@ body {
   margin-bottom: 0rem;
   text-transform: uppercase;
   border-bottom: 1px solid #000;
+}
+.hero {
+  background-image: url('../img/ocean.jpg');
+  background-repeat: repeat-y;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 20rem;
+  color: #fff;
+  font-size: 6rem;
+  text-align: center;
+  padding-top: 52px;
+  letter-spacing: 3rem;
+  font-weight: 600;
 }
 
 .navbar-inverse .navbar-brand {
@@ -135,7 +147,12 @@ body {
   max-height: 380px;
   padding-left: 3rem;
 }
-
+.description {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 2px;
+}
 .release-info-header {
   background-color: #fff;
   font-size: 2rem;
