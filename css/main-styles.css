@@ -10,7 +10,7 @@ body {
   min-  height: 100%;
   padding-top: 70px;
 	font-family: "Abel";
-	background-color: #F6EFEE;
+	background-color: #FFFF;
 }
 
 .body-container {
@@ -37,7 +37,7 @@ body {
   color: #fff;
   font-size: 6rem;
   text-align: center;
-  padding-top: 52px;
+  padding-top: 40px;
   letter-spacing: 3rem;
   font-weight: 600;
 }
@@ -276,8 +276,43 @@ div.play-button {
   color: #fff;
 }
 
-@media (min-width: 768px){
-.container {
-max-width: none;
-}
-}
+/*==========  Mobile First Media Queries  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) and (max-width : 479px) {
+      .hero { 
+        display: none;
+      }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) and (max-width : 767px) {
+      .hero {
+        display: none;
+      }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) and (max-width : 991px) {
+      .container {
+        max-width: none;
+      }
+      .hero {
+        padding-top: 54px;
+      }
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) and (max-width : 1199px) {
+      .hero {
+        font-size: 8rem;
+      }
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+      .hero {
+          font-size: 8rem;
+        }
+    }
+
