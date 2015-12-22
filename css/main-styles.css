@@ -155,6 +155,16 @@ body {
 .container.album-feature {
   min-height: 90rem;
 }
+.album-no-hover {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  padding-top: 3rem;
+}
 /* Tab Navigation */
 .nav-tabs {
   margin: 0;
@@ -245,6 +255,9 @@ div.play-button {
   color: #F0EFEB;
   background-color: #000;
   padding-bottom: 5rem;
+}
+.footer ul {
+  list-style: none;
 }
 .navbar-bottom {
   top: 35px;
