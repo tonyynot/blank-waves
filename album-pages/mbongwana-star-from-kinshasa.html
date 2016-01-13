@@ -9,7 +9,7 @@
   <meta name="description" content="Blank Waves | Share and listen to new releases">
   <meta name="author" content="Anthony Ramella">
 
-  <title>Blank Waves | Curated by Anthony Ramella</title>
+  <title>Mbongwana Star / From Kinshasa | Blank Waves</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -76,10 +76,10 @@
         <div class="col-lg-12 col-med-12 col-sm-12 release-info-header">
           <p>Artist: Mbongwana Star</p>
           <p>Album: From Kinshasa</p>
-          <p>Label: Nonesuch Records</p>
+          <p>Label: World Circuit</p>
           <p>Released: 2015</p><hr>
-          <p>Purchase on iTunes</p>
-          <p>Purchase vinyl on Discogs</p>
+          <a href="https://itunes.apple.com/us/album/from-kinshasa/id978784735">Purchase on iTunes</a>
+          <a href="http://www.discogs.com/sell/release/7203342?ev=rb">Purchase vinyl on Discogs</a>
         </div>
       </div>
 
@@ -107,7 +107,7 @@
             </li>
             <li>
               <a href="#review" role="tab" data-toggle="tab">
-                Review
+                Reviews
               </a>
             </li>
           </ul><!-- end nav tabs -->
@@ -120,11 +120,11 @@
               <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <!-- Spotify / Soundcloud player embed // Default size for album: 350x450 -->
-                  <iframe src="https://embed.spotify.com/?uri=spotify:album:4pJLTVI1ja3JCN50r5osdC" width="350" height="450" frameborder="0" allowtransparency="true"></iframe>
+                  <iframe src="https://embed.spotify.com/?uri=spotify:album:4pJLTVI1ja3JCN50r5osdC" frameborder="0" allowtransparency="true" width="350" height="430"></iframe>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <!-- Get Spotify URL for artist follow widget -->
-                  <iframe src="https://embed.spotify.com/follow/1/?uri=https://open.spotify.com/artist/2zvrV2uB7FH9HAGsg93cMy&size=detail&theme=light" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+                  <iframe src="https://embed.spotify.com/follow/1/?uri=spotify:artist:2zvrV2uB7FH9HAGsg93cMy&size=detail&theme=light" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
                 </div>
               </div>
             </div><!--end listen pane content-->
@@ -132,6 +132,12 @@
           <!-- Video content -->
           <div class="tab-pane fade" id="video">
             <h2>Video</h2>
+            <div class="youtube-container">
+              <div class="youtube-player" data-id="OJCwfjl_sXc"></div>
+                <div class="description">
+                <p>Mbongwana Star - Malukayi (feat. Konono No. 1)</p>
+                </div>
+            </div>
           </div><!--end buy pane content -->
 
           <!-- Discuss Content -->
@@ -155,7 +161,9 @@
 
           <!-- Reviews content -->
           <div class="tab-pane fade" id="review">
-            <h2>User reviews section coming soon</h2>
+            <h2>Reviews</h2>
+              <div id="results"> </div>
+
           </div><!--end reviews pane content -->
 
         </div><!--end tabs content-->
@@ -167,11 +175,10 @@
 </div>
 
 </div><!-- end container -->
-<!-- Footer -->
 <footer>
-    <div class="footer navbar-bottom">
-      <p>Copyright &copy; Anthony Ramella 2015</p>
-    </div>
+  <div class="navbar navbar-bottom">
+  &copy;2015 Anthony Ramella
+</div>
 </footer>
   <!-- jQuery -->
   <script src="/js/jquery.js"></script>
@@ -179,6 +186,118 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="/js/bootstrap.min.js"></script>
 
+  <!-- Youtube Embed Script -->
+  <script src="/js/youtube-embed.js"></script>
+
+  <!-- Echonest API Script -->
+  <script type="text/javascript">
+
+  var apiKey = 'NHU6TJIHQ2CCKXVOY ';
+  jQuery.ajaxSettings.traditional = true;
+
+  function fetchReviews(artist) {
+      var url = 'http://developer.echonest.com/api/v4/artist/reviews';
+
+      $("#results").hide();
+      var args = {
+              format:'json',
+              api_key: 'NHU6TJIHQ2CCKXVOY',
+              name: "Mbongwana Star",
+              results: 15,
+      };
+
+      info("Fetching reviews for " + artist);
+      $.getJSON(url, args,
+              function(data) {
+                  console.log(data);
+                  $("#results").empty();
+                  if (! ('reviews' in data.response)) {
+                      error("Can't find any reviews for " + artist);
+                  } else {
+                      $("#results").show();
+                      var titles = {}
+                      $.each(data.response.reviews, function(index, item) {
+                          if (! (item.name in titles)) {
+                              var div = format(item);
+                              if (div) {
+                                  $("#results").append(div);
+                              }
+                              titles[item.name] = 1;
+                          }
+                      });
+                      info("Showing " + data.response.reviews.length + " of " + data.response.total + " reviews for " + artist);
+                  }
+              },
+              function() {
+                  error("Trouble getting reviews for " + artist);
+              }
+          );
+  }
+
+  var blackList = ['www.crawdaddy.com'];
+
+  function format(item) {
+      var div = $("<div class='well clearfix'>");
+      var source = getSource(item.url);
+
+      if (blackList.indexOf(source) != -1) {
+          return null;
+      }
+
+      div.append($("<h3>").html(item.name));
+
+      if (item.image_url) {
+          div.append($("<img style='float:left;margin-right:10px;max-width:150px'>").attr('src', item.image_url));
+      }
+
+      var date = null;
+      if ('date_posted' in item) {
+          date = item.date_posted;
+      } else if ('date_found' in item) {
+          date = item.date_found;
+      }
+      if (date) {
+          date = "<i>" + date.substring(0,10) + '</i> ';
+      }
+
+      div.append($("<p>").html(date + item.summary + " ..." ));
+      var link = $("<a>");
+      link.attr('href', item.url);
+      link.text("full review on " + source);
+      div.append(link);
+      return div;
+  }
+
+  function getSource(url) {
+    var path = url.split('/');
+    return path[2]  ;
+  }
+
+  function info(s) {
+      $("#info").removeClass();
+      if (s.length > 0) {
+          $("#info").addClass("alert alert-info");
+      }
+      $("#info").text(s);
+  }
+
+  function error(s) {
+      $("#info").removeClass();
+      if (s.length > 0) {
+          $("#info").addClass("alert alert-error");
+      }
+      $("#info").text(s);
+  }
+
+
+
+  $(document).ready(function() {
+      // fetchApiKey will fetch the Echo Nest demo key for demos
+      // hosted on The Echo Nest, otherwise it fetch an empty key
+      fetchReviews();
+  });
+
+  </script>
 </body>
 
 </html>

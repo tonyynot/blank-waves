@@ -162,7 +162,20 @@ body {
 .container.album-feature {
   min-height: 90rem;
 }
+<<<<<<< HEAD
 
+=======
+.album-no-hover {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  padding-top: 3rem;
+}
+>>>>>>> 16f79f4059b0fe357ff9b7dec50e255f8ff8cf75
 /* Tab Navigation */
 .nav-tabs {
   margin: 0;
@@ -262,11 +275,17 @@ div.play-button {
   background-color: #000;
   padding-bottom: 5rem;
 }
+<<<<<<< HEAD
 
 .footer p {
   margin: 20px 20px;
 }
 
+=======
+.footer ul {
+  list-style: none;
+}
+>>>>>>> 16f79f4059b0fe357ff9b7dec50e255f8ff8cf75
 .navbar-bottom {
   top: 35px;
   padding-top: 0.5rem;
