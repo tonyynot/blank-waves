@@ -7,4 +7,4 @@ TO DO
 
 
 FIX:
-Padding on heading border / index page
+Padding on heading border / index page (medium screen)
